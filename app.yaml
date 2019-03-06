@@ -1,0 +1,54 @@
+application: techniic-217307
+version: live
+runtime: python27
+threadsafe: true
+api_version: 1
+
+handlers:
+
+- url: /img
+  static_dir: img
+  secure: always
+
+- url: /css
+  static_dir: css
+  secure: always
+
+- url: /favicon.ico
+  static_dir: favicon.ico
+  secure: always
+
+- url: /fonts
+  static_dir: fonts
+  secure: always
+
+- url: /js
+  static_dir: js
+  secure: always
+
+- url: /screenshot
+  static_dir: screenshot
+  secure: always
+
+# - url: /template
+#   static_dir: template
+
+- url: /.well-known/acme-challenge/.*
+  script: main.app
+
+
+- url: /.*
+  script: main.app
+  secure: always
+
+
+libraries:
+- name: webapp2
+  version: "2.5.2"
+
+- name: MySQLdb
+  version: "latest"
+
+- name: jinja2
+  version: latest
+
